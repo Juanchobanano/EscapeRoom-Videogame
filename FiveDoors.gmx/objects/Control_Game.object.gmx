@@ -26,8 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>if(room == r_baius){
-    globalvar idioma, game_pause, musica_pause, sef_pause, noads;
+    globalvar idioma, game_pause, musica_pause, sef_pause, noads, 
+              played, nivel;
     
+    nivel = 1;
+    played = false;
     noads = false; 
     game_pause = false;
     musica_pause = 0;

@@ -65,7 +65,10 @@ if(idioma == "en"){
                 "Options",
                 "Donate"
               );
-              
+    
+    if(played){
+        txt[0] = "Continue";
+    }   
               
               
 }else if(idioma == "es"){
@@ -75,7 +78,10 @@ if(idioma == "en"){
                 "Opciones",
                 "Donar"
               );
-              
+    
+    if(played){
+        txt[0] = "Continuar";
+    }  
               
               
 }

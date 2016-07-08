@@ -119,9 +119,9 @@
         <script>scripts\set_movement_collision_object.gml</script>
         <script>scripts\set_movement_friction.gml</script>
         <script>scripts\set_movement_bounce.gml</script>
-        <script>scripts\set_movement_gravity.gml</script>
       </scripts>
       <scripts name="Helper Scripts">
+        <script>scripts\set_movement_gravity.gml</script>
         <script>scripts\approach.gml</script>
         <script>scripts\instance_place_multiple.gml</script>
         <script>scripts\decimal_bbox_right.gml</script>
@@ -133,12 +133,9 @@
     </scripts>
     <scripts name="FiveDoors Scripts">
       <script>scripts\Change_Language.gml</script>
-      <script>scripts\Draw_Credits.gml</script>
       <script>scripts\Prepare_IAP.gml</script>
       <script>scripts\Play_Button.gml</script>
       <script>scripts\room_goto_transition.gml</script>
-      <script>scripts\Draw_Levels.gml</script>
-      <script>scripts\in_Rectangle.gml</script>
       <script>scripts\Idioma_Index.gml</script>
       <script>scripts\Traduce.gml</script>
       <scripts name="LoadSaveGame">
@@ -146,6 +143,11 @@
         <script>scripts\Load_Data.gml</script>
         <script>scripts\Save_Data.gml</script>
         <script>scripts\SaveSettings.gml</script>
+      </scripts>
+      <scripts name="Draw Interfaces">
+        <script>scripts\Draw_Levels.gml</script>
+        <script>scripts\in_Rectangle.gml</script>
+        <script>scripts\Draw_Credits.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -157,6 +159,7 @@
     <font>fonts\font_game_26</font>
     <font>fonts\font_game_15</font>
     <font>fonts\font_game_50</font>
+    <font>fonts\font_rayman_26</font>
   </fonts>
   <objects name="objects">
     <object>objects\o_solid</object>

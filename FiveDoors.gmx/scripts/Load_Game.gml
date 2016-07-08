@@ -12,5 +12,6 @@ if(file_exists(working_directory + "datos_general.sav")){
     musica_pause = ini_read_real("musica_pause", "pass", 0);
     sef_pause = ini_read_real("sef_pause", "pass", 0);
     idioma = ini_read_string("idioma", "pass", 0);
+    played = ini_read_real("played", "pass", 0);
     ini_close();
 }

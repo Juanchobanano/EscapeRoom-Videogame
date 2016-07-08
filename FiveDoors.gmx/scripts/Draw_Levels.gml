@@ -20,21 +20,19 @@ for(var i = 0; i < num_y; i += 1)
         }else{
         
             // Check if the level is available.
-            var disponible = true;
-            /*if(count - 1 >= 0){
-                if(ds_grid_get(medallas_niveles, count - 1, 0) != 0){
-                    disponible = true;
-                }
-            }else{
-                disponible = true;
-            }*/
-    
+            var disponible = false;
+            
+            if(count <= nivel - 1){
+                disponible = true;    
+            }
+            
             // Global settings of the level number text.
             draw_set_color(c_white);
-            draw_set_font(font_game_26);
+         //   draw_set_font(font_game_26);
+            draw_set_font(font_rayman_26);
             
             var xs = xx + sprite_get_width(spr_level) / 2 - string_width(string(count+1))/2 + 1;         
-            var ys = yy_marco + string_height(string(count + 1))/2;// * 2 - 5;
+            var ys = yy_marco + string_height(string(count + 1))/2 + 10;// * 2 - 5;
             
             var color = make_color_rgb(51,51,51);
     
@@ -53,8 +51,9 @@ for(var i = 0; i < num_y; i += 1)
                 //}
             
                 // Draw the number of the level.
+                draw_set_font(font_rayman_26);
                 draw_text(xs, ys, string(count + 1));
-                
+                draw_set_font(font_game_26);
                 
                 // Check if the mouse_x and mouse_y is on a level object.
                 if(in_Rectangle(xx, yy_marco, xx + sprite_get_width(spr_level), yy_marco + sprite_get_height(spr_level))){
@@ -74,6 +73,7 @@ for(var i = 0; i < num_y; i += 1)
                 if((point_distance(pressed, 0, released, 0) < 10) and disponible){ 
                   //  room_goto_transition(Room_Loading, 0);
                    // audio_play_sound(sn_boton_start, 1, 0);
+                    if(!played){ played = true;  SaveSettings(); }
                     room_goto_transition((asset_get_index('game' + string(count + 1))), 0);
                   //  nivel_selected = count + 1;
                     Play_Button();
