@@ -3,8 +3,8 @@
   <caption></caption>
   <width>768</width>
   <height>480</height>
-  <vsnap>24</vsnap>
-  <hsnap>24</hsnap>
+  <vsnap>32</vsnap>
+  <hsnap>32</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -76,6 +76,7 @@
     <instance objName="o_solid" x="128" y="32" name="inst_079ABB94" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_solid" x="256" y="32" name="inst_D2B5A9A3" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_solid" x="320" y="64" name="inst_39A07023" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Control_Pistas" x="0" y="0" name="inst_FF743AC7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background0" x="160" y="384" w="64" h="32" xo="32" yo="96" id="10000039" name="inst_DD2FE3B4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -289,6 +290,8 @@
     <tile bgName="background2" x="544" y="128" w="32" h="32" xo="96" yo="64" id="10002199" name="inst_D3A949D2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background2" x="576" y="128" w="32" h="32" xo="64" yo="64" id="10002200" name="inst_BDB4B0EF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background2" x="448" y="128" w="32" h="32" xo="0" yo="64" id="10002201" name="inst_0B30B92D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="background2" x="288" y="224" w="32" h="32" xo="96" yo="64" id="10002202" name="inst_0D8505DD" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="background2" x="320" y="224" w="64" h="32" xo="0" yo="64" id="10002203" name="inst_E82730B6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

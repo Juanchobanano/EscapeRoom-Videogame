@@ -58,6 +58,7 @@
     <instance objName="Creditos" x="0" y="128" name="inst_9444A29E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oHeartBeast" x="36" y="379" name="inst_B6EBC6FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Will" x="667" y="370" name="inst_22E7A314" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Control_Pistas" x="42" y="12" name="inst_F021FE36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -53,6 +53,7 @@
   <instances>
     <instance objName="Dibujar_Creditos" x="0" y="0" name="inst_49875762" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Back" x="0" y="64" name="inst_459DC871" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Control_Pistas" x="32" y="0" name="inst_6940C842" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
