@@ -160,6 +160,7 @@
     <font>fonts\font_game_15</font>
     <font>fonts\font_game_50</font>
     <font>fonts\font_rayman_26</font>
+    <font>fonts\font_game_12</font>
   </fonts>
   <objects name="objects">
     <object>objects\o_solid</object>

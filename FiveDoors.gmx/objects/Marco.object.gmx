@@ -154,6 +154,15 @@ if(idioma == "en"){
     draw_text(xs, ys, "Seleccion de Nivel");
 }
 
+draw_set_font(font_game_15);
+draw_text(
+    room_width - string_width("(C). BAIUS") - 15, 
+    room_height - string_height("(C). BAIUS") - 5, 
+    "(C). BAIUS"
+);
+
+
+
 // Draw the position indicator bar on the right
 bar_pos = ((view_hview-banner_height)/height) * offset*-1;
 bar_hei = ((view_hview-banner_height)/height) * (view_hview-banner_height)
