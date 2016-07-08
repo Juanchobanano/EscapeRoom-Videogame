@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>draw_set_color(c_white);
+estado = "opciones";
+select_donate = false;
 
 uni_resolution_hoz = shader_get_uniform(shd_gaussian_horizontal,"resolution");
 uni_resolution_vert = shader_get_uniform(shd_gaussian_vertical,"resolution");
@@ -93,6 +95,59 @@ if keyboard_check(ord('A')) var_blur_amount -= 0.01;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="66">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var val = ds_map_find_value(iap_data, "type");
+switch(val){
+   case iap_ev_purchase:
+      var map = ds_map_create();
+      var purchase_id = ds_map_find_value(iap_data, "index");
+      iap_purchase_details(purchase_id, map);
+      if(ds_map_find_value(map, "status") == iap_purchased){
+          var product_id = ds_map_find_value(map, "product");
+          iap_consume(product_id);
+      }
+      ds_map_destroy(map);
+   break;
+   case iap_ev_consume:
+      var product_id = ds_map_find_value(map, "product");
+      if(ds_map_find_value(iap_data, "consumed")){
+        switch(product_id){
+            case "noads":
+                global.noads = true; // Aumentar la cantidad de vidas.
+            break;
+        }
+      }
+      
+      // Save the no ads.
+      var grid1 = ds_grid_create(1,2);
+      ds_grid_add(grid1, 0, 0, "noads_boolean");
+      ds_grid_add(grid1, 0, 1, noads);
+      Save_Data("NoAds", grid1, "single");
+   
+   break;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -135,23 +190,63 @@ draw_set_color(c_white);
 draw_set_font(font_game_26);
 draw_set_halign(fa_center);
 
-
-if(room != r_menu){
-    draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
-    draw_text(room_width/2, room_height/2 - 20, "GAME PAUSED");
-    draw_set_halign(noone);
-    draw_sprite(spr_play, 0, 696, 24);
-    draw_sprite(spr_back, 0, 0, 24);
-    if(in_Rectangle(0, 24, sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
-        game_pause = false;
-        instance_destroy();
-        room_goto_transition(r_levels2, 0, 40);
+if(estado == "opciones"){
+    if(room != r_menu){
+        draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
+        draw_text(room_width/2, room_height/2 - 20, "GAME PAUSED");
+        draw_set_halign(noone);
+        draw_sprite(spr_play, 0, 696, 24);
+        draw_sprite(spr_back, 0, 0, 24);
+        if(in_Rectangle(0, 24, sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
+            game_pause = false;
+            instance_destroy();
+            room_goto_transition(r_levels2, 0, 40);
+            Play_Button();
+        }
+    }else{
+        draw_sprite(spr_recuadro, 0, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
+        draw_text(room_width/2, room_height/2 - 20, "OPTIONS");
+        draw_set_halign(noone);
+        draw_sprite(spr_exit, 0, 696, 24);
+        if(in_Rectangle(696, 24, 696 + sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
+          
+            game_pause = false;
+            with o_player can_move = true;
+            
+            instance_destroy();
+            Play_Button();
+        }   
+    }
+    
+    
+    var xp = room_width/2 - sprite_get_width(spr_sound)/2;
+    var yp = room_height/2 + 30; 
+    draw_sprite(spr_sound, sef_pause, xp, yp);
+    
+    
+    if(in_Rectangle(xp, yp, xp + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
         Play_Button();
+        sef_pause = !sef_pause;
+        SaveSettings();
+    }
+    
+    draw_sprite(spr_music, musica_pause, xp - 36 - 24, yp);
+    if(in_Rectangle(xp - 36 - 24, yp, xp - 36 - 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
+        Play_Button();
+        musica_pause = !musica_pause;
+        SaveSettings();
+    }
+    
+    draw_sprite(spr_idioma, Idioma_Index(idioma), xp + 36 + 24, yp);
+    if(in_Rectangle(xp + 36 + 24, yp, xp + 36 + 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
+        Play_Button();
+        idioma = Change_Language(idioma);
+        SaveSettings();
     }
 }else{
-    draw_sprite(spr_recuadro, 0, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
-    draw_text(room_width/2, room_height/2 - 20, "OPTIONS");
-    draw_set_halign(noone);
+
+    
+    
     draw_sprite(spr_exit, 0, 696, 24);
     if(in_Rectangle(696, 24, 696 + sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
       
@@ -160,31 +255,43 @@ if(room != r_menu){
         
         instance_destroy();
         Play_Button();
-    }   
-}
-
-var xp = room_width/2 - sprite_get_width(spr_sound)/2;
-var yp = room_height/2 + 30;
+    }
     
-draw_sprite(spr_sound, sef_pause, xp, yp);
+    if(in_Rectangle(room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2-30, room_width/2 + sprite_get_width(spr_recuadro)/2, room_height/2-30 + sprite_get_height(spr_recuadro))){
+        draw_sprite(spr_recuadro, 2, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
+        if(!select_donate){
+            select_donate = true;
+            if(!audio_is_playing(sn_select_donate)){
+                audio_stop_sound(sn_select_donate);
+            }
+            if(instance_exists(Screen_Shake)) with Screen_Shake instance_destroy();
+            audio_play_sound(sn_select_donate, 1, 0);
+            var s = instance_create(0,0, Screen_Shake);
+            with(s) alarm[0] = 45;
+        }
+        
+        // Comprar.
+        if(mouse_check_button_pressed(mb_left)){
+            // Processs IAP request.
+            if(iap_status() == iap_status_available){
+               iap_acquire("noads", ""); // Evento A.
+            }else{
+               if(idioma == "en"){
+                  show_message_async("Store is not available.");
+               }else if(idioma == "es"){
+                  show_message_async("La tienda no está disponible.");
+               }
+            }
+        }
+    }else{
+        select_donate = false;
+        draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
+    }
+    
+    draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
+    draw_text(room_width/2, room_height/2 - 20, "REMOVE ADS#$2");
+    draw_set_halign(noone);
 
-
-
-if(in_Rectangle(xp, yp, xp + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
-    Play_Button();
-    sef_pause = !sef_pause;
-}
-
-draw_sprite(spr_music, musica_pause, xp - 36 - 24, yp);
-if(in_Rectangle(xp - 36 - 24, yp, xp - 36 - 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
-    Play_Button();
-    musica_pause = !musica_pause;
-}
-
-draw_sprite(spr_idioma, Idioma_Index(idioma), xp + 36 + 24, yp);
-if(in_Rectangle(xp + 36 + 24, yp, xp + 36 + 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
-    Play_Button();
-    idioma = Change_Language(idioma);
 }
     
 </string>

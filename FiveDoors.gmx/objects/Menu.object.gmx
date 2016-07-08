@@ -109,7 +109,8 @@ if(idioma == "en"){
             
             with o_player can_move = false;
             game_pause = true;
-            instance_create(0,0, obj_controller_gaussian_blur);
+            var d = instance_create(0,0, obj_controller_gaussian_blur);
+            with d estado = "opciones";
             Play_Button();
             
         }
@@ -125,7 +126,13 @@ if(idioma == "en"){
     
     if(mouse_check_button_pressed(mb_left) and !game_pause){
         if(in_Rectangle(room_width - string_width(txt[3])/2 - 40 - 100, room_height - string_height("Donate") - 25, room_width - string_width("Donate")/2 - 40 - 100 + sprite_get_width(spr_ellipse), room_height - string_height("Donate") - 25 + sprite_get_height(spr_ellipse))){
-            room_goto_transition(r_levels2, 0, 60);
+            
+            with o_player can_move = false;
+            game_pause = true;
+            var d = instance_create(0,0, obj_controller_gaussian_blur);
+            with d estado = "donar";
+            Play_Button();
+            
             Play_Button();
         }
     }
