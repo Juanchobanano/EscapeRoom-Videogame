@@ -25,37 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Surface.
-if(room == r_menu) instance_destroy();
-surf = surface_create(room_width, room_height);
-surface_set_target(surf);
-draw_clear_alpha(c_black, 0);
-surface_reset_target();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(surface_exists(surf)){
-    surface_free(surf);
-}
+            <string>/// Create textbox variables.
+font = font_textbox;
+color = c_white;
+str = 0;
+vel = .5;
+t = 0;
+draw_skip = false;
+angle = 0;
+room_end = false;
+
+can_skip = true;
+can_continue = true;
+
+//destroy = false;
+text = ds_list_create();
+cara = ds_list_create();
+
+// Fill text and text faces.
+TextBox_Dialogs(room, nivel, 1);
+
+// Helful animation textbox variables.
+//process[0] = true;
+
+with Key_Father visible = 0;
 </string>
           </argument>
         </arguments>
@@ -78,56 +71,47 @@ surface_reset_target();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(surface_exists(surf)){
-    surface_set_target(surf);
-    
-    draw_set_color(c_black);
-    draw_set_alpha(1);
-    draw_rectangle(0, 0, room_width, room_height, false);
-    
-    draw_set_blend_mode(bm_subtract);
-    
-    draw_set_color(c_black);
-    draw_set_alpha(0.2);
-    
- //   if(room != r_menu){
-        var rango = 80;
-        var rango2 = 45;
-  //  }else{
-   //     var rango = 120*2;
-    //    var rango2 = 90*2;
-    //}
-    
-    with(o_player){
-        draw_circle(x + random_range(-1,1), y + random_range(-1,1), rango + random_range(-1,1), false);       
+            <string>/// Draws text in a text box effect.
+//Dialogs_Features(Room_Intro, 1, Goro, t);
+
+    if(str &lt; string_length(ds_list_find_value(text, t))){
+        str += vel; // Speed of text.
     }
     
-    draw_set_color(c_yellow);
-    draw_set_alpha(1);
-    
-    with(o_player){
-        draw_circle(x + random_range(-1,1), y + random_range(-1,1), rango2 + random_range(-1,1), false);       
+    if(str &gt;= string_length(ds_list_find_value(text, t))){
+        draw_skip = true;   
+        var box_pressed = in_Rectangle(4, 390, 4 + sprite_get_width(spr_textbox), 390 + sprite_get_height(spr_textbox)) and mouse_check_button_pressed(mb_left);
+        if(box_pressed and can_continue){
+            t++;
+            str = 0;
+            draw_skip = false;
+            if(ds_list_size(text) &lt;= t){
+                with (o_player) {can_move = true;}
+                instance_create(view_wview[0] - 168 + 15, view_hview[0] - 137 + 15, Key_Jump); // 137
+                instance_create(0, view_hview[0] - 156 + 15, Key_Left); // 156
+                instance_create(116 + 1, view_hview[0] - 156 + 15, Key_Right); // 156
+                ds_list_destroy(text);
+                ds_list_destroy(cara);
+                instance_destroy();
+            }
+        }
+    }else{
+        draw_skip = false;
+        if(keyboard_check(ord('Z')) and (str &lt; string_length(ds_list_find_value(text, t)))){
+            str += (vel + 1);
+        }
     }
-    
-    
-    draw_set_blend_mode(bm_normal);
-    draw_set_alpha(1);
-    
-    surface_reset_target();
-    
-}else{
-    surf = surface_create(room_width, room_height);
-    surface_set_target(surf);
-    draw_clear_alpha(c_black, 0);
-    surface_reset_target();
-       
+
+/*if(box_pressed and can_skip){ 
+    with (o_player) {can_move = true;}
+    instance_destroy();
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="3">
+    <event eventtype="7" enumb="5">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -144,9 +128,8 @@ surface_reset_target();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(surface_exists(surf)){
-    surface_free(surf);
-}
+            <string>ds_list_destroy(text);
+ds_list_destroy(cara);
 </string>
           </argument>
         </arguments>
@@ -169,11 +152,22 @@ surface_reset_target();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!surface_exists(surf)){
-    surf = surface_create(room_width, room_height)
-}else{
-    if(view_current == 0){
-        draw_surface(surf, 0, 0);
+            <string>/// Draw the textbox and the text.
+draw_sprite_ext(spr_textbox, 0, 4, 390, 1, 1, 0, c_white, 1); // draw textbox.
+draw_set_font(font);
+var c_grey_dark = make_color_rgb(190, 190, 190);
+var c_grey_light = make_color_rgb(208, 208, 208);
+draw_sprite(spr_caras, ds_list_find_value(cara, t), 24, 406);
+//draw_text_colour(62, 407, string_copy(text[t], 0, str), c_grey_dark, c_grey_dark, c_grey_dark, c_grey_dark, 1);
+draw_text_colour(64, 405, string_copy(ds_list_find_value(text,t), 0, str), c_grey_light, c_grey_light, c_grey_light, c_grey_light, 1);
+//draw_text_colour(51, 406, string_copy(text[t], 0, str), c_grey_light, c_grey_light, c_grey_light, c_grey_light, 1);
+//draw_text_colour(51, 503, string_copy(text[t], 0, str), c_grey_dark, c_grey_dark, c_grey_dark, c_grey_dark, 1);
+if(draw_skip){ 
+    if(ds_list_size(text) &gt; t){
+        angle+=.3; 
+        draw_sprite_ext(spr_skip_text, 0, 740, 445 + sin(angle) * 5, 1, 1, 0, c_white, 1); 
+    }else{
+        draw_sprite(spr_skip_text, 1, 770, 445);
     }
 }
 </string>

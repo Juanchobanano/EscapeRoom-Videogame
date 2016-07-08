@@ -31,6 +31,9 @@
     <sounds name="Key">
       <sound>sound\sn_key</sound>
     </sounds>
+    <sounds name="Player">
+      <sound>sound\sn_huh</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Controles">
@@ -101,6 +104,11 @@
       <sprite>sprites\spr_player_dead</sprite>
       <sprite>sprites\spr_player_jump</sprite>
       <sprite>sprites\s_player_mask</sprite>
+    </sprites>
+    <sprites name="TextBox">
+      <sprite>sprites\spr_textbox</sprite>
+      <sprite>sprites\spr_caras</sprite>
+      <sprite>sprites\spr_skip_text</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -177,6 +185,11 @@
         <script>scripts\Pistas.gml</script>
       </scripts>
     </scripts>
+    <scripts name="TextBox">
+      <script>scripts\TextBox_Dialogs.gml</script>
+      <script>scripts\Dialogs_Features.gml</script>
+      <script>scripts\Face_Number.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_gaussian_horizontal.shader</shader>
@@ -189,6 +202,7 @@
     <font>fonts\font_rayman_26</font>
     <font>fonts\font_game_12</font>
     <font>fonts\font_game_18</font>
+    <font>fonts\font_textbox</font>
   </fonts>
   <objects name="objects">
     <objects name="Ingame">
@@ -237,6 +251,7 @@
       <object>objects\Marco</object>
       <object>objects\Control_Pistas</object>
       <object>objects\Control_Game</object>
+      <object>objects\TextBox</object>
     </objects>
   </objects>
   <rooms name="rooms">

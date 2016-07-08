@@ -31,11 +31,7 @@ can_move = true;
 pistas = 0;
 Pistas();
 initialize_movement_entity(.5, .5, 0, 1, o_solid);
-if(room != r_menu){
-    instance_create(view_wview[0] - 168 + 15, view_hview[0] - 137 + 15, Key_Jump); // 137
-    instance_create(0, view_hview[0] - 156 + 15, Key_Left); // 156
-    instance_create(116 + 1, view_hview[0] - 156 + 15, Key_Right); // 156
-}
+
 //instance_create(0,0,oLighting);
 key_right = 0;
 key_left = 0;
