@@ -71,9 +71,11 @@
     <sprite>sprites\spr_heartbeast</sprite>
     <sprite>sprites\spr_ico_baius</sprite>
     <sprite>sprites\spr_will</sprite>
+    <sprite>sprites\spr_ducky</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\background2</background>
     <background>background\background1</background>
   </backgrounds>
   <paths name="paths"/>
@@ -176,10 +178,12 @@
     <object>objects\Creditos</object>
     <object>objects\Dibujar_Creditos</object>
     <object>objects\Will</object>
+    <object>objects\Ducky</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\r_baius</room>
     <room>rooms\r_menu</room>
+    <room>rooms\game1_2</room>
     <room>rooms\game1</room>
     <room>rooms\r_levels2</room>
     <room>rooms\r_levels</room>
