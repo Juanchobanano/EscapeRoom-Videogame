@@ -40,8 +40,8 @@
           <argument>
             <kind>1</kind>
             <string>/// Create the virtual Key.
-show_debug_message(x);
-show_debug_message(y);
+//show_debug_message(x);
+//show_debug_message(y);
 
 key = virtual_key_add(x, y, sprite_width, sprite_height, vk_up);
 </string>

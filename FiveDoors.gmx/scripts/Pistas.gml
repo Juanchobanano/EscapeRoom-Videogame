@@ -1,11 +1,21 @@
 
 if(idioma == "en"){
     pistas = Traduce(
-            "Nothing to fear."
+                "Nothing to fear.",
+                "",
+                "",
+                "",
+                "",
+                ""
     
             );
 }else if(idioma == "es"){
     pistas = Traduce(
-            "Nada que temer."
+                "Nada que temer.",
+                "",
+                "",
+                "",
+                "",
+                ""
             );
 }

@@ -108,6 +108,7 @@ if(!cr){
     alarm[0] = 30;
     cr = true;
     room_restart();
+    nivel++;
 }
 </string>
           </argument>
