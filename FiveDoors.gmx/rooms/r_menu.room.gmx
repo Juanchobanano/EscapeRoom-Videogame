@@ -68,6 +68,10 @@
     <instance objName="Youtube" x="0" y="256" name="inst_BF8A9412" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oHeartBeast" x="47" y="379" name="inst_4D5D3DDA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Creditos" x="0" y="64" name="inst_A8A1A9EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="0" y="256" name="inst_2206F73B" locked="0" code="" scaleX="2.53125" scaleY="2.28125" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="0" y="160" name="inst_0352BD09" locked="0" code="" scaleX="2.53125" scaleY="2.29032254219055" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="0" y="64" name="inst_387B34B7" locked="0" code="" scaleX="2.53125" scaleY="2.28125" colour="4294967295" rotation="0"/>
+    <instance objName="Key" x="199" y="155" name="inst_3F8A1A74" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background0" x="288" y="416" w="32" h="32" xo="64" yo="96" id="10002035" name="inst_407C8AAE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
