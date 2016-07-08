@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>draw_set_color(c_white);
 estado = "opciones";
-select_donate = false;
 
 uni_resolution_hoz = shader_get_uniform(shd_gaussian_horizontal,"resolution");
 uni_resolution_vert = shader_get_uniform(shd_gaussian_vertical,"resolution");
@@ -159,7 +158,7 @@ switch(val){
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -183,7 +182,9 @@ surface_reset_target();
 if shader_enabled shader_set(shd_gaussian_vertical);
     shader_set_uniform_f(uni_resolution_vert, var_resolution_x, var_resolution_y);
     shader_set_uniform_f(uni_blur_amount_vert, var_blur_amount);
-    draw_surface(final_surface,0,0);
+    if(surface_exists(final_surface)){
+        draw_surface(final_surface,0,0);
+    }
 shader_reset();
 
 draw_set_color(c_white);
@@ -244,13 +245,14 @@ if(estado == "opciones"){
         SaveSettings();
         with(o_player) Pistas();
     }
+    
 }else{
 
     
     
     draw_sprite(spr_exit, 0, 696, 24);
     if(in_Rectangle(696, 24, 696 + sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
-      
+        select_donate = false;
         game_pause = false;
         with o_player can_move = true;
         
@@ -258,18 +260,8 @@ if(estado == "opciones"){
         Play_Button();
     }
     
-    if(in_Rectangle(room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2-30, room_width/2 + sprite_get_width(spr_recuadro)/2, room_height/2-30 + sprite_get_height(spr_recuadro))){
+    if(in_Rectangle(room_width/2 - sprite_get_width(spr_recuadro)/2 + 30, room_height/2-30, room_width/2 + sprite_get_width(spr_recuadro)/2 - 30, room_height/2-30 + sprite_get_height(spr_recuadro) - 60)){
         draw_sprite(spr_recuadro, 2, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
-        if(!select_donate){
-            select_donate = true;
-            if(!audio_is_playing(sn_select_donate)){
-                audio_stop_sound(sn_select_donate);
-            }
-            if(instance_exists(Screen_Shake)) with Screen_Shake instance_destroy();
-            audio_play_sound(sn_select_donate, 1, 0);
-            var s = instance_create(0,0, Screen_Shake);
-            with(s) alarm[0] = 45;
-        }
         
         // Comprar.
         if(mouse_check_button_pressed(mb_left)){
@@ -285,7 +277,7 @@ if(estado == "opciones"){
             }
         }
     }else{
-        select_donate = false;
+        
         draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
     }
     

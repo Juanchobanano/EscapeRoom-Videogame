@@ -27,8 +27,9 @@
             <kind>1</kind>
             <string>if(room == r_baius){
     globalvar idioma, game_pause, musica_pause, sef_pause, noads, 
-              played, nivel;
+              played, nivel, select_donate;
     
+    select_donate = false;
     nivel = 1;
     played = false;
     noads = false; 

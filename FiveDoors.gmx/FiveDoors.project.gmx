@@ -212,6 +212,7 @@
     <object>objects\Ducky</object>
     <object>objects\Will</object>
     <object>objects\Screen_Shake</object>
+    <object>objects\Control_Pistas</object>
   </objects>
   <rooms name="rooms">
     <rooms name="Room Generales">

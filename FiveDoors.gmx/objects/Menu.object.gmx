@@ -130,19 +130,30 @@ if(idioma == "en"){
     draw_text(
         room_width - string_width(txt[3])/2 - 45, 
         room_height - string_height(txt[3]) - 20,
-        "Donate"
+        txt[3]
     );  
     
     if(mouse_check_button_pressed(mb_left) and !game_pause){
         if(in_Rectangle(room_width - string_width(txt[3])/2 - 40 - 100, room_height - string_height("Donate") - 25, room_width - string_width("Donate")/2 - 40 - 100 + sprite_get_width(spr_ellipse), room_height - string_height("Donate") - 25 + sprite_get_height(spr_ellipse))){
             
+            if(!select_donate){
+                select_donate = true;
+                if(!audio_is_playing(sn_select_donate)){
+                    audio_stop_sound(sn_select_donate);
+                }
+                if(instance_exists(Screen_Shake)) with Screen_Shake instance_destroy();
+                audio_play_sound(sn_donate, 1, 0);
+                var s = instance_create(0,0, Screen_Shake);
+                with(s) alarm[0] = 45;
+            }    
+        
+        
             with o_player can_move = false;
             game_pause = true;
             var d = instance_create(0,0, obj_controller_gaussian_blur);
             with d estado = "donar";
-            Play_Button();
-            
-            Play_Button();
+           // Play_Button();
+           
         }
     }
     
