@@ -20,11 +20,11 @@ for(var i = 0; i < num_y; i += 1)
         }else{
         
             // Check if the level is available.
-            var disponible = false;
+             disponible = false;
             
-            if(count <= nivel - 1){
+            /*if(count <= nivel - 1){
                 disponible = true;    
-            }
+            }*/
             
             // Global settings of the level number text.
             draw_set_color(c_white);
@@ -74,8 +74,10 @@ for(var i = 0; i < num_y; i += 1)
                   //  room_goto_transition(Room_Loading, 0);
                    // audio_play_sound(sn_boton_start, 1, 0);
                     if(!played){ played = true;  SaveSettings(); }
-                    room_goto_transition((asset_get_index('game' + string(count + 1))), 0);
+                    //room_goto_transition((asset_get_index('game' + string(count + 1))), 0);
                   //  nivel_selected = count + 1;
+                    room_goto_transition(game1, 0, 45);
+                    nivel = count + 1;
                     Play_Button();
                     released = -99999;
                 }
