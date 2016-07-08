@@ -132,7 +132,8 @@ if(!cr){
           <argument>
             <kind>1</kind>
             <string>draw_self();
-/*if(place_meeting(x, y, o_player)){
+/*
+if(place_meeting(x, y, o_player)){
     draw_set_font(font_game_26);
     draw_set_color(c_white);
     draw_set_halign(fa_center);

@@ -28,6 +28,8 @@
             <string>/// Initialize the player
 has_key = false;
 can_move = true;
+pistas = 0;
+Pistas();
 initialize_movement_entity(.5, .5, 0, 1, o_solid);
 if(room != r_menu){
     instance_create(view_wview[0] - 168 + 15, view_hview[0] - 137 + 15, Key_Jump); // 137
@@ -95,27 +97,6 @@ move_movement_entity();
           <argument>
             <kind>1</kind>
             <string>/// Game settings.
-
-if(keyboard_check_pressed(ord('X'))){
-    if(place_meeting(x,y, Door)){
-        if(!has_key){
-            if(audio_is_playing(sn_locked)){
-                audio_stop_sound(sn_locked);
-            }
-            audio_play_sound(sn_locked, 1, 0);
-        }else{
-            var dn = instance_nearest(x, y, Door);
-            with (dn) { 
-                if(!open){
-                    open = true; 
-                    audio_play_sound(sn_open_door, 1, 0);
-                }
-            }
-            //can_move = false;
-        }
-    }
-}
-
 if(place_meeting(x, y, Key)){
     with (Key){
         if(!pick){
@@ -124,6 +105,29 @@ if(place_meeting(x, y, Key)){
         }
     }
 }
+
+// Draw door entry.
+    if(in_Rectangle(Door.x, Door.y - Door.sprite_height/2, Door.x + Door.sprite_width, Door.y + Door.sprite_height/2) and mouse_check_button_pressed(mb_left)){            
+        if(place_meeting(x,y, Door)){
+            
+            if(!has_key){
+                if(audio_is_playing(sn_locked)){
+                    audio_stop_sound(sn_locked);
+                }
+                audio_play_sound(sn_locked, 1, 0);
+            }else{
+                    var dn = instance_nearest(x, y, Door);
+                    with (dn) { 
+                        if(!open){
+                            open = true; 
+                            audio_play_sound(sn_open_door, 1, 0);
+                        }
+                }
+                //can_move = false;
+            }
+        
+        }
+    }
 </string>
           </argument>
         </arguments>
@@ -146,9 +150,25 @@ if(place_meeting(x, y, Key)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(room != r_menu){
+            <string>/// Draw general things.
+if(room != r_menu){
 if(!has_key) draw_sprite(spr_inventario, 0, 624+12, 24);
 else draw_sprite(spr_inventario, 1, 624+12, 24);
+}
+
+if(room != r_menu){
+
+    // Draw pista.
+    draw_set_font(font_game_18);
+    draw_set_color(c_white);
+    draw_text(128-24, 24, string(nivel) + ". " + pistas[nivel-1]);
+    
+    
+    
+    if(place_meeting(x, y, Door)){
+        draw_sprite(spr_getin, 0, Door.x + Door.sprite_width/2, Door.y);        
+    }
+    
 }
 draw_self();
 </string>

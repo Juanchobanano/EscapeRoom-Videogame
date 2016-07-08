@@ -242,6 +242,7 @@ if(estado == "opciones"){
         Play_Button();
         idioma = Change_Language(idioma);
         SaveSettings();
+        with(o_player) Pistas();
     }
 }else{
 

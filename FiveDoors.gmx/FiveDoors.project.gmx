@@ -45,6 +45,7 @@
     <sprite>sprites\spr_player_jump</sprite>
     <sprite>sprites\spr_player_run</sprite>
     <sprite>sprites\spr_puerta</sprite>
+    <sprite>sprites\spr_getin</sprite>
     <sprite>sprites\spr_babosa</sprite>
     <sprite>sprites\spr_dragon</sprite>
     <sprite>sprites\spr_eye</sprite>
@@ -76,8 +77,14 @@
     <sprite>sprites\spr_help</sprite>
     <sprite>sprites\spr_heartbeast</sprite>
     <sprite>sprites\spr_ico_baius</sprite>
-    <sprite>sprites\spr_will</sprite>
     <sprite>sprites\spr_ducky</sprite>
+    <sprites name="Will">
+      <sprite>sprites\spr_will_baile</sprite>
+      <sprite>sprites\spr_will_espada_front</sprite>
+      <sprite>sprites\spr_will_espada_perfil</sprite>
+      <sprite>sprites\spr_will_espada_back</sprite>
+      <sprite>sprites\spr_will_golpes</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -149,6 +156,9 @@
         <script>scripts\in_Rectangle.gml</script>
         <script>scripts\Draw_Credits.gml</script>
       </scripts>
+      <scripts name="InGame">
+        <script>scripts\Pistas.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -161,6 +171,7 @@
     <font>fonts\font_game_50</font>
     <font>fonts\font_rayman_26</font>
     <font>fonts\font_game_12</font>
+    <font>fonts\font_game_18</font>
   </fonts>
   <objects name="objects">
     <object>objects\o_solid</object>
@@ -198,19 +209,25 @@
     <object>objects\oHeartBeast</object>
     <object>objects\Creditos</object>
     <object>objects\Dibujar_Creditos</object>
-    <object>objects\Will</object>
     <object>objects\Ducky</object>
+    <object>objects\Will</object>
     <object>objects\Screen_Shake</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\r_baius</room>
-    <room>rooms\r_menu</room>
-    <room>rooms\game1_2</room>
-    <room>rooms\game1</room>
-    <room>rooms\r_levels2</room>
-    <room>rooms\r_levels</room>
-    <room>rooms\room1</room>
-    <room>rooms\r_creditos</room>
+    <rooms name="Room Generales">
+      <room>rooms\r_baius</room>
+      <room>rooms\r_levels2</room>
+      <room>rooms\r_menu</room>
+      <room>rooms\r_creditos</room>
+    </rooms>
+    <rooms name="Games">
+      <room>rooms\game1</room>
+    </rooms>
+    <rooms name="Extra">
+      <room>rooms\r_levels</room>
+      <room>rooms\room1</room>
+      <room>rooms\game1_2</room>
+    </rooms>
   </rooms>
   <constants number="12">
     <constant name="TRANS_FADE_COLOR">0</constant>
