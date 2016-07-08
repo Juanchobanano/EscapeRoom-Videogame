@@ -33,57 +33,74 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\s_solid</sprite>
-    <sprite>sprites\s_player_mask</sprite>
-    <sprite>sprites\s_player_jump</sprite>
-    <sprite>sprites\s_player_walk</sprite>
-    <sprite>sprites\s_player_idle</sprite>
-    <sprite>sprites\s_solid_slope</sprite>
-    <sprite>sprites\s_smooth_slope</sprite>
-    <sprite>sprites\spr_player_dead</sprite>
-    <sprite>sprites\spr_player_idle</sprite>
-    <sprite>sprites\spr_player_jump</sprite>
-    <sprite>sprites\spr_player_run</sprite>
-    <sprite>sprites\spr_puerta</sprite>
-    <sprite>sprites\spr_getin</sprite>
-    <sprite>sprites\spr_babosa</sprite>
-    <sprite>sprites\spr_dragon</sprite>
-    <sprite>sprites\spr_eye</sprite>
-    <sprite>sprites\s_player_walk_new</sprite>
-    <sprite>sprites\spr_bola</sprite>
-    <sprite>sprites\spr_blood</sprite>
     <sprites name="Controles">
       <sprite>sprites\spr_jump</sprite>
       <sprite>sprites\spr_left</sprite>
       <sprite>sprites\spr_right</sprite>
     </sprites>
-    <sprite>sprites\spr_level</sprite>
-    <sprite>sprites\spr_titulo_niveles</sprite>
-    <sprite>sprites\spr_recuadro</sprite>
-    <sprite>sprites\spr_baius</sprite>
-    <sprite>sprites\spr_ellipse</sprite>
-    <sprite>sprites\spr_back</sprite>
-    <sprite>sprites\spr_creditos</sprite>
-    <sprite>sprites\spr_youtube</sprite>
-    <sprite>sprites\spr_facebok</sprite>
-    <sprite>sprites\spr_key</sprite>
-    <sprite>sprites\spr_inventario</sprite>
-    <sprite>sprites\spr_music</sprite>
-    <sprite>sprites\spr_sound</sprite>
-    <sprite>sprites\spr_idioma</sprite>
-    <sprite>sprites\spr_pause</sprite>
-    <sprite>sprites\spr_play</sprite>
-    <sprite>sprites\spr_exit</sprite>
-    <sprite>sprites\spr_help</sprite>
-    <sprite>sprites\spr_heartbeast</sprite>
-    <sprite>sprites\spr_ico_baius</sprite>
-    <sprite>sprites\spr_ducky</sprite>
     <sprites name="Will">
       <sprite>sprites\spr_will_baile</sprite>
       <sprite>sprites\spr_will_espada_front</sprite>
       <sprite>sprites\spr_will_espada_perfil</sprite>
       <sprite>sprites\spr_will_espada_back</sprite>
       <sprite>sprites\spr_will_golpes</sprite>
+    </sprites>
+    <sprites name="Sprites HearBeast">
+      <sprites name="Player Sprites">
+        <sprite>sprites\s_player_walk</sprite>
+        <sprite>sprites\s_player_jump</sprite>
+        <sprite>sprites\s_player_idle</sprite>
+      </sprites>
+      <sprite>sprites\s_solid_slope</sprite>
+      <sprite>sprites\s_smooth_slope</sprite>
+    </sprites>
+    <sprites name="Enemies">
+      <sprite>sprites\spr_babosa</sprite>
+      <sprite>sprites\spr_dragon</sprite>
+      <sprite>sprites\spr_eye</sprite>
+    </sprites>
+    <sprites name="Settings">
+      <sprite>sprites\spr_music</sprite>
+      <sprite>sprites\spr_sound</sprite>
+      <sprite>sprites\spr_exit</sprite>
+      <sprite>sprites\spr_help</sprite>
+      <sprite>sprites\spr_inventario</sprite>
+      <sprite>sprites\spr_pause</sprite>
+      <sprite>sprites\spr_play</sprite>
+      <sprite>sprites\spr_idioma</sprite>
+    </sprites>
+    <sprites name="Social">
+      <sprite>sprites\spr_facebok</sprite>
+      <sprite>sprites\spr_youtube</sprite>
+    </sprites>
+    <sprites name="Interfaces">
+      <sprite>sprites\spr_recuadro</sprite>
+      <sprite>sprites\spr_creditos</sprite>
+      <sprite>sprites\spr_bola</sprite>
+      <sprite>sprites\spr_back</sprite>
+      <sprite>sprites\spr_heartbeast</sprite>
+      <sprite>sprites\spr_level</sprite>
+      <sprite>sprites\spr_titulo_niveles</sprite>
+    </sprites>
+    <sprites name="Menu">
+      <sprite>sprites\spr_baius</sprite>
+    </sprites>
+    <sprites name="InGame">
+      <sprite>sprites\spr_key</sprite>
+      <sprite>sprites\spr_getin</sprite>
+      <sprite>sprites\spr_ellipse</sprite>
+      <sprite>sprites\s_solid</sprite>
+      <sprite>sprites\spr_blood</sprite>
+      <sprite>sprites\spr_puerta</sprite>
+      <sprite>sprites\spr_ducky</sprite>
+      <sprite>sprites\spr_ico_baius</sprite>
+    </sprites>
+    <sprites name="Extra">
+      <sprite>sprites\spr_player_run</sprite>
+      <sprite>sprites\spr_player_idle</sprite>
+      <sprite>sprites\spr_player_dead</sprite>
+      <sprite>sprites\spr_player_jump</sprite>
+      <sprite>sprites\s_player_mask</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -174,45 +191,53 @@
     <font>fonts\font_game_18</font>
   </fonts>
   <objects name="objects">
-    <object>objects\o_solid</object>
-    <object>objects\o_player</object>
-    <object>objects\o_moving_solid</object>
-    <object>objects\o_slope</object>
-    <object>objects\o_mountain</object>
-    <object>objects\Door</object>
-    <object>objects\Bola</object>
-    <objects name="Particles">
-      <object>objects\obj_part</object>
+    <objects name="Ingame">
+      <object>objects\Ducky</object>
+      <object>objects\Help</object>
+      <object>objects\o_solid</object>
+      <object>objects\o_player</object>
+      <object>objects\DeathRock_Particles</object>
+      <object>objects\o_mountain</object>
+      <object>objects\o_moving_solid</object>
+      <object>objects\Blood_Particles</object>
+      <object>objects\o_slope</object>
+      <object>objects\Door</object>
+      <object>objects\Key</object>
+      <object>objects\Will</object>
     </objects>
-    <object>objects\Blood_Particles</object>
-    <object>objects\DeathRock_Particles</object>
-    <object>objects\oLighting</object>
     <objects name="Controles">
       <object>objects\Key_Father</object>
       <object>objects\Key_Jump</object>
       <object>objects\Key_Left</object>
       <object>objects\Key_Right</object>
     </objects>
-    <object>objects\Marco</object>
-    <object>objects\sys_transition</object>
-    <object>objects\Control_Game</object>
-    <object>objects\Baius</object>
-    <object>objects\Menu</object>
-    <object>objects\Recuadro</object>
-    <object>objects\Back</object>
-    <object>objects\Facebook</object>
-    <object>objects\Youtube</object>
-    <object>objects\Key</object>
-    <object>objects\Help</object>
-    <object>objects\Pause</object>
-    <object>objects\obj_controller_gaussian_blur</object>
-    <object>objects\oHeartBeast</object>
-    <object>objects\Creditos</object>
-    <object>objects\Dibujar_Creditos</object>
-    <object>objects\Ducky</object>
-    <object>objects\Will</object>
-    <object>objects\Screen_Shake</object>
-    <object>objects\Control_Pistas</object>
+    <objects name="Menu">
+      <object>objects\Creditos</object>
+      <object>objects\oHeartBeast</object>
+      <object>objects\Back</object>
+      <object>objects\Baius</object>
+      <object>objects\Menu</object>
+      <object>objects\Recuadro</object>
+    </objects>
+    <objects name="Social">
+      <object>objects\Facebook</object>
+      <object>objects\Youtube</object>
+    </objects>
+    <objects name="Settings">
+      <object>objects\Pause</object>
+    </objects>
+    <objects name="Shaders">
+      <object>objects\obj_controller_gaussian_blur</object>
+    </objects>
+    <objects name="Control">
+      <object>objects\sys_transition</object>
+      <object>objects\oLighting</object>
+      <object>objects\Screen_Shake</object>
+      <object>objects\Dibujar_Creditos</object>
+      <object>objects\Marco</object>
+      <object>objects\Control_Pistas</object>
+      <object>objects\Control_Game</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <rooms name="Room Generales">
