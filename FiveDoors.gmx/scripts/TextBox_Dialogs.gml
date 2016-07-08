@@ -68,5 +68,10 @@ if(idioma == "en"){
 
 //show_debug_message(ds_list_size(text));
 if(ds_list_size(text) <= 0){ 
-   instance_destroy();
+    instance_create(view_wview[0] - 168 + 15, view_hview[0] - 137 + 15, Key_Jump); // 137
+    instance_create(0, view_hview[0] - 156 + 15, Key_Left); // 156
+    instance_create(116 + 1, view_hview[0] - 156 + 15, Key_Right); // 156
+    ds_list_destroy(text);
+    ds_list_destroy(cara);
+    instance_destroy();
 }

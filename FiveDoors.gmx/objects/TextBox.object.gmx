@@ -47,8 +47,6 @@ TextBox_Dialogs(room, nivel, 1);
 
 // Helful animation textbox variables.
 //process[0] = true;
-
-with Key_Father visible = 0;
 </string>
           </argument>
         </arguments>
@@ -155,8 +153,10 @@ ds_list_destroy(cara);
             <string>/// Draw the textbox and the text.
 draw_sprite_ext(spr_textbox, 0, 4, 390, 1, 1, 0, c_white, 1); // draw textbox.
 draw_set_font(font);
-var c_grey_dark = make_color_rgb(190, 190, 190);
-var c_grey_light = make_color_rgb(208, 208, 208);
+//var c_grey_dark = make_color_rgb(190, 190, 190);
+var c_grey_dark = make_color_rgb(208, 208, 208);
+
+var c_grey_light = make_color_rgb(255, 255, 255);
 draw_sprite(spr_caras, ds_list_find_value(cara, t), 24, 406);
 //draw_text_colour(62, 407, string_copy(text[t], 0, str), c_grey_dark, c_grey_dark, c_grey_dark, c_grey_dark, 1);
 draw_text_colour(64, 405, string_copy(ds_list_find_value(text,t), 0, str), c_grey_light, c_grey_light, c_grey_light, c_grey_light, 1);
