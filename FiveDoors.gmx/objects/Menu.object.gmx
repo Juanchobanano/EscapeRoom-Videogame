@@ -92,7 +92,10 @@ if(idioma == "en"){
     draw_text(room_width/2, 160, txt[0]);
     if(mouse_check_button_pressed(mb_left) and !game_pause){
         if(in_Rectangle(room_width/2 - 100, 155 ,room_width/2 - 100 + sprite_get_width(spr_ellipse), 155 + sprite_get_height(spr_ellipse))){
-            room_goto_transition(r_levels2, 0, 60);
+            
+            if(!played) room_goto_transition(r_levels2, 0, 60);
+            else room_goto_transition(asset_get_index("game" + string(nivel)), 0, 45);
+            
             Play_Button();
         }
     }
