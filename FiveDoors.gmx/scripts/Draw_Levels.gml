@@ -20,7 +20,7 @@ for(var i = 0; i < num_y; i += 1)
         }else{
         
             // Check if the level is available.
-             disponible = false;
+             disponible = true;
             
             /*if(count <= nivel - 1){
                 disponible = true;    
